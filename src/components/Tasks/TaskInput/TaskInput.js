@@ -8,7 +8,7 @@ const TaskInput = props => {
   const [isValid, setIsValid] = useState(true);
 
   const goalInputChangeHandler = event => {
-    if(event.target.value.trim().length>0){
+    if (event.target.value.trim().length > 0) {
       setIsValid(true);
     }
     setEnteredValue(event.target.value);
@@ -25,13 +25,9 @@ const TaskInput = props => {
 
   return (
     <form onSubmit={formSubmitHandler}>
-      <div className="form-control">
-        <label style={{ color: !isValid ? 'red' : 'black' }}>Task Goal</label>
+      <div className={`form-control ${!isValid ? 'invalid' : ''}`}>
+        <label>Task Goal</label>
         <input
-          style={{
-            borderBlockColor: !isValid ? 'red' : 'black',
-            background: !isValid ? 'salmon' : 'transparent'
-          }}
           type="text"
           onChange={goalInputChangeHandler}
         />
